@@ -54,14 +54,17 @@
             format="pdf"
             source="main.ptx"
             publication="publication.ptx"
+            xsl = "custom-print.xsl"
             output-dir="print"
             output-filename="mybook.pdf"
             latex-engine="pdflatex"
             deploy-dir="pdf"
+            
           />
           <target
             name="latex"
             format="latex"
+            xsl = "custom-print.xsl"
           />
           <target
             name="braille"
