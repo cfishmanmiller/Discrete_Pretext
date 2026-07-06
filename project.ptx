@@ -3,17 +3,12 @@
 <!-- If you modify this file, PreTeXt will no longer automatically update it.-->
 
 <!-- This file, the project manifest, provides the overall configuration for your PreTeXt project. To edit the content of your document, open `source/main.ptx`. See https://pretextbook.org/doc/guide/html/processing-CLI.html#cli-project-manifest. -->
-<project ptx-version="2">
-  <targets>
-    <target name="web" format="html" />
-    <target name="print" format="pdf" />
-  </targets>
-</project>
+
 
 
 <!-- SAMPLE MANIFEST illustrating all options. Defaults are given (mostly).              -->
 
-<!-- <project
+<project
         ptx-version="2"
         source="source"
         publication="publication"
@@ -22,7 +17,7 @@
         stage="output/stage"
         xsl="xsl"
         asy-method="local"
-        generated-cache=".cache"
+       
      >
        <targets>
           <target
@@ -31,24 +26,9 @@
             source="main.ptx"
             publication="publication.ptx"
             output-dir="web"
-            deploy-dir="interactive"
-            xsl="custom-html.xsl"
-            asy-method="local"
           />
-          <target
-            name="web-zipped"
-            format="html"
-            source="main.ptx"
-            publication="publication.ptx"
-            output-dir="web"
-            compression="zip"
-            asy-method="local"
-          />
-          <target
-            name="runestone"
-            format="html"
-            platform="runestone"
-          />
+         
+          
           <target
             name="print"
             format="pdf"
@@ -56,21 +36,10 @@
             publication="publication.ptx"
             xsl = "custom-print.xsl"
             output-dir="print"
-            output-filename="mybook.pdf"
-            latex-engine="pdflatex"
             deploy-dir="pdf"
             
           />
-          <target
-            name="latex"
-            format="latex"
-            xsl = "custom-print.xsl"
-          />
-          <target
-            name="braille"
-            format="braille"
-            braille-mode="emboss"
-          />
+          
         </targets>
 </project>
--->
+
