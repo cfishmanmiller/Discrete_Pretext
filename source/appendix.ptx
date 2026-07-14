@@ -8,7 +8,6 @@
     
     <introduction>
       <aside xml:id="aside-su-articles">
-        <title>Further reading</title>
         <p>
           A link to a nice relevant three-page article by Francis Su:
         </p>
@@ -73,7 +72,6 @@
         shown here.
       </p>
       <aside xml:id="aside-informal-symbols">
-        <title>Informal symbols</title>
         <p>
           <md>
             <mrow>\Rightarrow \amp:\quad \text{"implies"}</mrow>
@@ -89,8 +87,8 @@
         but it makes life easier for your reader. Of course, you will need to
         use symbols in your writing&#8212;just do not use those listed in
         formal writing. On the other hand, here are some symbols from logic we
-        encourage you to never use, even in informal work: <q>&#8743;</q> for
-        <q>and</q>, <q>&#8744;</q> for <q>or</q>, and <q>&#8764;</q> for
+        encourage you to never use, even in informal work: <q><m>\land</m></q> for
+        <q>and</q>, <q><m>\lor</m></q> for <q>or</q>, and <q><m>\sim</m></q> for
         <q>not</q>. Again, it is easier on your reader to use the word instead
         of these symbols.
       </p>
@@ -98,7 +96,7 @@
 
     <subsection xml:id="subsec-red-herrings">
       <title>Red herrings</title>
-      <image source="images/redherring3.png" width="30%">
+      <image source="redherring3.png" width="30%">
         <description>
           <p>A picture of a red herring.</p>
         </description>
@@ -138,7 +136,7 @@
         </md>
       </p>
 
-      <image source="images/warning.png" width="15%">
+      <image source="warning.png" width="15%">
         <description><p>A warning symbol.</p></description>
       </image>
       <p>
