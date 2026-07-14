@@ -7,33 +7,106 @@
   <bibinfo>
   
     <author>
-      <personname>You</personname>
-      <department>Your department</department>
-      <institution>Your institution</institution>
+      <personname>Kyle Ormsby</personname>
+      <department>Mathematics</department>
+      <institution>Reed College</institution>
+    </author>
+    <author>
+      <personname>Dave Perkinson</personname>
+      <department>Mathematics</department>
+      <institution>Reed College</institution>
     </author>
     <date>
       <today />
     </date>
 
-    <website>
-      <url href="https://pretextbook.org">My Website</url>
-    </website>
 
-    <copyright>
-      <year>2020<ndash />2024</year>
-      <holder>You</holder>
-      <shortlicense> This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
-      </shortlicense>
-    </copyright>
+    
   
   </bibinfo>
 
   <titlepage>
     <titlepage-items/>
+    
   </titlepage>
 
   <colophon xml:id="front-colophon">
     <colophon-items/>
   </colophon>
+
+  <preface>
+    <title>Notation</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            <m>\N</m> <mdash/> the natural numbers <m>\{0,1,2,3,\cdots\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\Z</m> <mdash/> the integers <m>\{\cdots,-2,-1,0,1,2,\cdots\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\Q</m> <mdash/> the set of rational numbers (fractions <m>a/b</m> with <m>a,b\in \Z</m> and <m>b\neq 0</m>)
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\R</m> <mdash/> the real numbers (positive and negative decimals, potentially infinite and nonrepeating)
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>[n]</m> <mdash/> the set of numbers <m>\{1,2,\cdots\,n\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\mathfrak{S}_n</m> <mdash/> the set of permutations of <m>[n]</m>
+          </p>
+        </li>
+      </ul>
+      
+    </p>
+  </preface>
+ <preface>
+  <title>Introduction</title>
+  <p>
+    This text is a rigorous, problem-centered exploration of the mathematics of discrete structures focusing on the following subjects:
+    <ul>
+      <li>
+        <p>
+          <em>Combinatorics</em> tells us why there are 40,320 ways to place eight nonattacking rooks on an 8<m>\times</m>8 chessboard. We will learn how to count
+permutations, combinations, derangements, and other collections,
+develop the language of sets and functions, and utilize basic proof
+techniques like the pigeon hole principle and mathematical induction.
+        </p>
+      </li>
+      <li>
+        <p>
+          <em>Graph Theory</em> 
+
+        </p>
+      </li>
+       <li>
+        <p>
+          <em>Probability</em> tells us why it's likely that two people in a room of 23 or
+more will share the same birthday. We will study conditional probability, Bayes' Theorem, and expected values.
+        </p>
+      </li>
+      <li>
+        <p>
+          <em>Number Theory</em> tells us why we shouldn't try to solve the equation <m>a^3+b^3=c^3</m> with nonzero integers. Topics include divisibility, prime
+numbers, the Fundamental Theorem of Arithmetic, modular arithmetic,
+and Fermat's Little Theorem.
+        </p>
+      </li>
+    </ul>
+  </p>
+  
+ </preface>
 </frontmatter>
 
