@@ -12,7 +12,7 @@
 
     <!-- Include chapters -->
     <xi:include href="./ch-chapter-title.ptx" />
-
+  <xi:include href="./appendix.ptx" />
 
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />
