@@ -19,7 +19,26 @@
   <!-- macros for defining latex math shortcuts. It is good practice -->
   <!-- to define these semantically, so that the macro relates to what-->
   <!-- it defines. -->
-  <macros> \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} </macros>
+  <macros>
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\NN}{\N}
+    \newcommand{\Z}{\mathbb{Z}}
+    \newcommand{\ZZ}{\Z}
+    \newcommand{\Q}{\mathbb{Q}}
+    \newcommand{\QQ}{\Q}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\RR}{\R}
+    \newcommand{\CC}{\mathbb{C}}
+    \newcommand{\W}{\mathbb{W}}
+    \newcommand{\sm}{\smallsetminus}
+    \DeclareMathOperator{\im}{\mathrm{im}}
+    \DeclareMathOperator{\id}{\mathrm{id}}
+    \newcommand{\ul}[1]{\underline{#1}}
+    \newcommand{\lra}{\longrightarrow}
+    \newcommand{\lmt}{\longmapsto}
+    \newcommand{\lcm}{\operatorname{lcm}}
+    \newcommand{\Hit}{\operatorname{Hit}}
+  </macros>
 
   <!-- If you put any latex-image elements you can include preambles -->
   <!-- for those in the next element. -->
