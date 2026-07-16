@@ -26,6 +26,7 @@
             source="main.ptx"
             publication="publication.ptx"
             output-dir="web"
+            xsl = "custom-html.xsl"
           />
          
           
