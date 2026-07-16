@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chp-fundamental">
+  <title>Fundamental counting principles</title>
+
+  <section xml:id="sec-beginning-counting">
+    <title>Beginning counting</title>
+
+    <p>
+      In his 2010 New York Times opinion piece <pubtitle>From Fish to
+      Infinity</pubtitle> <!--<xref ref="Strogatz"/>!-->, mathematician Steven Strogatz
+      extols a Sesame Street skit as the finest possible introduction to the
+      concepts of number and counting. In the skit, the concierge of The Furry
+      Arms Hotel takes a room service order from a huddle of penguins; after
+      some confusion, the order settles on <q>fish, fish, fish, fish, fish,
+      fish.</q> When the concierge experiences difficulties communicating this
+      order to the kitchen, Ernie interrupts to suggest that it might be easier
+      if he counts the fish. <em>Count them?</em>
+    </p>
+
+    <aside xml:id="aside-fish">
+      <image source="graphics/fish.png" width="40%">
+        <description><p></p></description>
+      </image>
+    </aside>
+
+    <p>
+      Despite the apparent utility of counting, Strogatz argues
+    </p>
+
+    <blockquote>
+      <p>
+        [W]e might notice a potential downside to numbers. Sure, they are great
+        time savers, but at a serious cost in abstraction. Six is more ethereal
+        than six fish, precisely because it's more general. It applies to six of
+        anything: six plates, six penguins, six utterances of the word
+        <q>fish.</q> It's the ineffable thing they all have in common.
+      </p>
+      <p>
+        Viewed in this light, numbers start to seem a bit mysterious. They
+        apparently exist in some sort of Platonic realm, a level above reality.
+        In that respect they are more like other lofty concepts (<em>e.g.</em>,
+        truth and justice), and less like the ordinary objects of daily life.
+        Upon further reflection, their philosophical status becomes even
+        murkier. Where exactly do numbers come from? Did humanity invent them?
+        Or discover them?
+      </p>
+    </blockquote>
+
+    <p>
+      This text will not pursue the philosophical side of Strogatz's musings.
+      Instead, we will content ourselves with the enumeration of objects
+      possessing increasing complexity.
+    </p>
+
+    <example xml:id="ex-rooks">
+      <title>Pacifist rooks</title>
+      <statement>
+        <p>
+          In the game of chess, rooks may move any distance horizontally or
+          vertically, but not diagonally. Ignoring colors, we will say that two
+          rooks are <term>attacking</term> each other if they are in the same
+          rank (<em>i.e.</em>, row) or same file (<em>i.e.</em>, column). On a
+          standard <m>8 \times 8</m> chessboard, we can easily arrange <m>8</m>
+          rooks in a non-attacking configuration by placing them along the
+          diagonal. In fact, on an <m>n \times n</m> chessboard, we can use the
+          same arrangement to place <m>n</m> pacifist rooks on the chessboard.
+          This naturally leads to two questions:
+        </p>
+
+        <aside xml:id="aside-rooks-diagonal">
+          <!-- FLAG: chessboard package graphic, not convertible to PreTeXt.
+               Original: \chessboard[tinyboard, showmover=false,
+               setpieces={ra8,rb7,rc6,rd5,re4,rf3,rg2,rh1}] -->
+          <p></p>
+        </aside>
+
+        <p>
+          <ol marker="1.">
+            <li>
+              <p>
+                Can we fit more than <m>n</m> pacifist rooks on an
+                <m>n \times n</m> chessboard?
+              </p>
+            </li>
+            <li>
+              <p>
+                In how many ways can we arrange <m>n</m> pacifist rooks on an
+                <m>n \times n</m> chessboard?
+              </p>
+              <aside xml:id="aside-distinct-solutions">
+                <p>
+                  In any combinatorics problem, we ought to specify what
+                  solutions qualify as <em>distinct</em>. For instance, are
+                  rooks along the diagonal (northwest to southeast) and rooks
+                  along the anti-diagonal (southwest to northeast) distinct
+                  configurations? In this example, we will consider symmetric
+                  but non-identical solutions as distinct.
+                </p>
+              </aside>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          As the reader perhaps expects, it is <em>not</em> possible to put
+          <m>n+1</m> or more pacifist rooks on an <m>n \times n</m> chessboard.
+          Indeed, each rook is in some rank. If there are <m>N &gt; n</m> rooks,
+          then at least two rooks must occupy the same rank, and thus there are
+          at least two attacking rooks.
+        </p>
+
+        <aside xml:id="aside-pigeonhole-preview">
+          <p>
+            This is an example of argument via the <em>pigeonhole
+            principle</em>, which we will discuss at length in a subsequent
+            section.
+          </p>
+        </aside>
+
+        <p>
+          At this point, we know that the best we can do is <m>n</m> pacifist
+          rooks on an <m>n \times n</m> board. In how many ways can we arrange
+          these pacifists? After some contemplation, we can convince ourselves
+          that the following pictures exhaust the <m>n = 1, 2, 3, 4</m> cases.
+        </p>
+
+        <table xml:id="table-rook-configurations">
+          <title>
+            Legal configurations of <m>n</m> pacifist rooks on an
+            <m>n \times n</m> chessboard for <m>n = 1, 2, 3, 4</m>.
+          </title>
+          <tabular top="major" bottom="major">
+            <row header="yes" bottom="major">
+              <cell><m>n</m></cell>
+              <cell>
+                configurations of <m>n</m> pacifist rooks on an
+                <m>n \times n</m> board
+              </cell>
+            </row>
+            <!-- FLAG: every cell below held \chessboard graphics from the
+                 chessboard package. The setpieces data is preserved in
+                 comments; the boards themselves need images or <latex-image>. -->
+            <row>
+              <cell>1</cell>
+              <cell><!-- ra1 --></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell><!-- ra2,rb1 | ra1,rb2 --></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><!-- ra3,rb2,rc1 | ra3,rb1,rc2 | ra2,rb3,rc1 |
+                         ra2,rb1,rc3 | ra1,rb3,rc2 | ra1,rb2,rc3 --></cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell><!-- ra4,rb3,rc2,rd1 | ra4,rb3,rc1,rd2 | ra4,rb2,rc3,rd1 |
+                         ra4,rb2,rc1,rd3 | ra4,rb1,rc3,rd2 | ra4,rb1,rc2,rd3 --></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><!-- ra3,rb4,rc2,rd1 | ra3,rb4,rc1,rd2 | ra3,rb2,rc4,rd1 |
+                         ra3,rb2,rc1,rd4 | ra3,rb1,rc4,rd2 | ra3,rb1,rc2,rd4 --></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><!-- ra2,rb4,rc3,rd1 | ra2,rb4,rc1,rd3 | ra2,rb3,rc4,rd1 |
+                         ra2,rb3,rc1,rd4 | ra2,rb1,rc4,rd3 | ra2,rb1,rc3,rd4 --></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><!-- ra1,rb4,rc3,rd2 | ra1,rb4,rc2,rd3 | ra1,rb3,rc4,rd2 |
+                         ra1,rb3,rc2,rd4 | ra1,rb2,rc4,rd3 | ra1,rb2,rc3,rd4 --></cell>
+            </row>
+          </tabular>
+        </table>
+
+        <p>
+          Thus we know that the sequence starts <m>1, 2, 6, 24</m>. But where
+          does it go from there? First note that each file must contain exactly
+          one rook. Now begin with the first file: if no other squares are
+          occupied, we may freely place this file's rook in any of <m>n</m>
+          positions. Now go to the second file: this file's rook can go in any
+          of <m>n-1</m> positions; it cannot go in the rank where the previous
+          rook was placed. Similarly, we can place the next file's rook in any
+          of <m>n-2</m> positions (not the first and not the second rooks'
+          ranks). The number of choices decreases by one with each file until we
+          get to the <m>n</m>-th file where only one choice remains for the
+          final rook.
+        </p>
+
+        <p>
+          Each of the initial <m>n</m> choices begets another <m>n-1</m>
+          choices, each of these begets <m>n-2</m> choices, each of these
+          <m>n-3</m> choices, <em>etc.</em>, until each of the <m>2</m> choices
+          for the penultimate file begets <m>1</m> choice for the final column.
+          Thus there are
+          <md>n\cdot (n-1)\cdot (n-2) \cdot (n-3)\cdots 2\cdot 1</md>
+          total configurations.
+        </p>
+
+        <aside xml:id="aside-mcp-preview">
+          <p>
+            This is an instance of the <em>multiplicative counting
+            principle</em> (MCP). If you're uneasy regarding why these numbers
+            are multiplied (as opposed to, say, added) then pay careful
+            attention to the MCP later in the text.
+          </p>
+        </aside>
+
+        <p>
+          This number is called <q><m>n</m> <term>factorial</term></q> and is
+          denoted <m>n!</m>. As a special case, we set <m>0! = 1</m> (because
+          the empty configuration of rooks on a <m>0 \times 0</m> chessboard is
+          non-attacking). Since factorials will be so important in our future
+          explorations, we list the first several values in the following table.
+        </p>
+
+        <table xml:id="table-factorials">
+          <title>
+            The value of the factorial function <m>n!</m> for
+            <m>n = 0, 1, 2, \ldots, 8</m>.
+          </title>
+          <tabular top="major" bottom="major" halign="center">
+            <row header="yes" bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>3</m></cell>
+              <cell><m>4</m></cell>
+              <cell><m>5</m></cell>
+              <cell><m>6</m></cell>
+              <cell><m>7</m></cell>
+              <cell><m>8</m></cell>
+            </row>
+            <row>
+              <cell><m>n!</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>6</m></cell>
+              <cell><m>24</m></cell>
+              <cell><m>120</m></cell>
+              <cell><m>720</m></cell>
+              <cell><m>5{,}040</m></cell>
+              <cell><m>40{,}320</m></cell>
+            </row>
+          </tabular>
+        </table>
+
+        <p>
+          In particular, we see that there are
+          <md>8! = 8\cdot 7\cdot 6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1 = 40{,}320</md>
+          ways to place eight pacifist rooks on an <m>8 \times 8</m> chessboard.
+        </p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-covid">
+      <statement>
+        <p>
+          Suppose that <m>25</m> people gather in a large field for a socially
+          distanced party during the COVID-19 pandemic. In lieu of shaking
+          hands, each participant awkwardly catches the gaze of each other
+          participant and attempts to look like they are smiling while wearing a
+          face mask. If each participant shares exactly one awkward glance with
+          each other participant, how many total glances are shared?
+        </p>
+
+        <p>
+          Each of the <m>25</m> partygoers looks at <m>24</m> other partygoers,
+          so we might initially think that there are <m>25\cdot 24</m> total
+          glances. But some care must be exercised: this method counts Alice
+          looking at Bob and Bob looking at Alice as two different glances, when
+          in fact they are the same. Indeed, every glance is counted exactly
+          twice, and thus the total numbers is
+          <md>\frac{25\cdot 24}{2} = 300.</md>
+          Furthermore, there is nothing special about <m>25</m> in this example.
+          If there are <m>n</m> partygoers, there are a total of
+          <md>\frac{n(n-1)}{2}</md>
+          glances.
+        </p>
+
+        <p>
+          Observe, though, that we could make this count in another fashion: The
+          first partygoer glances at <m>n-1</m> other people. Then the second
+          partygoer looks at <m>n-2</m> (the original <m>n-1</m> others but
+          excluding the first partygoer). The third partygoer looks at
+          <m>n-3</m>, <em>etc.</em>, until the penultimate partygoer has just
+          the final reveller to glance at. This method does not overcount
+          anything, and reveals that there are a total of
+          <md>(n-1)+(n-2)+(n-3)+\cdots +2+1</md>
+          glances.
+        </p>
+
+        <aside xml:id="aside-acp-preview">
+          <p>
+            Here the numbers are added instead of multiplied. Why? What is
+            different from the pacifist rooks example? This is an instance of
+            the <em>additive counting principle</em> that you will study in
+            detail soon.
+          </p>
+        </aside>
+
+        <p>
+          Since we have counted the same thing in two different ways, we have
+          just uncovered a <term>combinatorial identity</term>:
+          <md>\frac{n(n-1)}{2} = (n-1)+(n-2)+(n-3)+\cdots+2+1</md>
+          for <m>n \ge 2</m>.
+        </p>
+
+        <aside xml:id="aside-pedantry">
+          <p>
+            You could argue that the identity holds for <m>n=1</m> as well, but
+            we will save such pedantry for later.
+          </p>
+        </aside>
+
+        <p>
+          Replacing <m>n</m> with <m>n+1</m>, we can rewrite this as an identity
+          regarding the sum of the first <m>n</m> positive integers:
+          <md>\frac{n(n+1)}{2} = 1+2+3+\cdots+(n-1)+n</md>
+          for <m>n \ge 1</m>.
+        </p>
+
+        <p>
+          This example hints at the power of combinatorial methods. By counting
+          something in more than one way, we can uncover striking relationships
+          between numbers.
+        </p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-comity-subcommittee">
+      <statement>
+        <p>
+          During its daily scrum meeting, the Committee on Committees decides it
+          must form a Subcommittee on the Comity of Committees. If the Committee
+          on Committees has <m>12</m> members and the Comity Subcommittee is to
+          have five members, how many different such subcommittees may be
+          formed?
+        </p>
+
+        <p>
+          Let's model the creation of the subcommittee by choosing its members
+          in sequence. For the first member, we have <m>12</m> choices (any of
+          the Committee on Committees's members); for the second, any of the
+          remaining <m>11</m> may be chosen; for the third, there are <m>10</m>
+          remaining choices; then <m>9</m> choices for the fourth; and finally
+          <m>8</m> choices for the fifth member. In this way, get
+          <m>12\cdot 11\cdot 10\cdot 9\cdot 8</m> ways to create the
+          subcommittee <em>if the order of selection matters</em>. But the order
+          of selection doesn't matter! The subcommittee consisting of Alice,
+          Bob, Charlene, Derrick, and Esther is the same as the subcommittee
+          with members Charlene, Esther, Bob, Alice, and Derrick. So we have
+          overcounted by a consistent factor, namely the number of ways to
+          re-order the five subcommittee members. Thinking back to the logic of
+          <xref ref="ex-rooks"/>, the reader should convince themselves that
+          there are <m>5! = 5\cdot 4\cdot 3\cdot 2\cdot 1</m> ways to do this
+          re-ordering. Thus the total number of possible Comity Subcommittees is
+          <md>\frac{12\cdot 11\cdot 10\cdot 9\cdot 8}{5!} = 792.</md>
+        </p>
+
+        <p>
+          This is actually a first example of a <term>binomial
+          coefficient</term>, a topic we will explore in great detail later.
+        </p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-subcommittee-with-chair">
+      <statement>
+        <p>
+          Elaborating on the previous example, suppose that we must also
+          designate a chair of the Comity Subcommittee. In how many ways can we
+          select the subcommittee-with-chair? Let's first answer this by
+          leveraging the work we have already done: first choose the
+          subcommittee (there are <m>792</m> such choices) and then choose the
+          chair (any one of the five subcommittee members). From this, we see
+          that there are
+          <md>792\cdot 5 = 3{,}960</md>
+          Comity Subcommittees with Chair.
+        </p>
+
+        <p>
+          But we could also answer this question in a different way: first
+          choose the chair (there are <m>12</m> such choices&#8212;any member of
+          the Committee on Committees) and then choose the remaining four
+          subcommittee members from the <m>11</m> reamining committee members.
+          Using the same logic as the previous example, we see that there are
+          <md>\frac{11\cdot 10\cdot 9\cdot 8}{4!} = 330</md>
+          ways to make the second choice. Thus there are
+          <md>12\cdot 330 = 3{,}960</md>
+          total Comity Subcommittees with Chair. Gratifyingly, this is the same
+          number that we found before.
+        </p>
+
+        <p>
+          There are three takeaways here:
+        </p>
+
+        <p>
+          <ol>
+            <li>
+              <p>
+                We can enchain combinatorial reasoning and enumerations to
+                create more complex counts.
+              </p>
+            </li>
+            <li>
+              <p>
+                If you want to verify a count, try to perform the count in a
+                different way.
+              </p>
+            </li>
+            <li>
+              <p>
+                Once again, we see that two different counts of the same object
+                result in a novel identity. In this case, the logic of this
+                problem generalizes to prove that
+                <md>\binom{n}{k}\cdot k = n\cdot \binom{n-1}{k-1}</md>
+                where <m>\binom{r}{s}</m> is the binomial coefficient counting
+                the number of ways to select <m>s</m> objects from <m>r</m>.
+                (Return to this identity after you have learned more about
+                binomial coefficients.)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </section>
+</chapter>
